@@ -1,0 +1,6 @@
+framework module SBNetWorking {
+  umbrella header "SBNetWorking.h"
+
+  export *
+  module * { export * }
+}
