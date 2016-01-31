@@ -1,18 +1,13 @@
 SBNetWorking
 ================
   This is simple Network call using NSURLSession for iOS, developed in Objective C. Includes Cache, callbacks using blocks as well and we can downlod the images using NSURLSessionDataTask.
-  
-## Requirements
-* Apple LLVM compiler
-* iOS 8.0 or higher
-* ARC
 
 ## Demo
 ## Installation
 1. Drag the Framework `SBNetWorking.framework` to your project folder.
 2. Add the Framework on `Project -> Targets -> General -> Embedded Binaries -> Press + Symbole -> Add SBNetWorking.framework`
 3. Make an import statement for the file as `#import <SBNetWorking/SBManager.h>.`
-4. To run in Simulator add the Framework under the given Folder Path `SBNetWorkingProject -> Framework -> Simulator`, For Device and Distributing to App Store use `SBNetWorkingProject -> Framework -> Device`.
+4. To run in Simulator add the Framework under the given Folder Path `SBNetWork -> Framework -> Simulator`, For Device and Distributing to App Store use `SBNetWork -> Framework -> Device`.
 
 <img src="https://raw.githubusercontent.com/sankarlal/sbNetWork/master/Screen%20Shots/Screen1.png" alt="SBNetWorking Screenshot" />
 <img src="https://raw.githubusercontent.com/sankarlal/sbNetWork/master/Screen%20Shots/Screen2.png" alt="SBNetWorking Screenshot" />
@@ -25,11 +20,11 @@ Add to your AppDelegate.m class given below configuration.
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    // Configure The URL Cache
+    // Configure The URL Cache -  MemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024
     [[SBManager sharedInstance] defaultURLCacheConfig];
     //    [[SBManager sharedInstance] configURLCacheInMemoryCapacity:10*1024*1024 diskCapacity:20*1024*1024];
     
-    // Configure The Cache Time
+    // Configure The Cache Time - 5 Minutes
     [[SBManager sharedInstance] defaultCacheTimeConfig];
     //    [[SBManager sharedInstance] configCacheTimeInMinutes:5];
     
