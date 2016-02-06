@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-  
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -27,14 +27,103 @@
     // Update NetWork Failure Message
     [[SBManager sharedInstance] updateNetWorkFailureMessage:@"Internet connection appears offline."];
     
+    // SB Reachability Notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(SBNetworkAvailbility:)
+                                                 name:@"SB_NETWORK_REACHABILITY"
+                                               object:nil];
     
+    // Background Download Process
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(URLSessionDidFinishEventsForBackgroundURLSession:)
+                                                 name:@"SB_BACKGROUND_URLSESSION"
+                                               object:nil];
+    
+    //need to enable background fetch
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    // Register Notification
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    
+    // Root View Controller
     UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:[[SBHomeViewController alloc] init]];
     self.window.rootViewController = rootNavigationController;
     [self.window makeKeyAndVisible];
-
+    
     return YES;
 }
 
+#pragma mark - Background Download Process
+-(void)SBNetworkAvailbility :(NSNotification*)object {
+    
+    BOOL isSBNetworkAvailablity = [[[object userInfo] valueForKey:@"isSBNetworkAvailable"] boolValue];
+    NSLog(@"isSBNetworkAvailablity %d",isSBNetworkAvailablity);
+    
+}
+
+#pragma mark - Background Download Process
+-(void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler{
+    
+    self.backgroundTransferCompletionHandler = completionHandler;
+    
+    
+}
+
+-(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSNotification *)object {
+    
+    NSURLSession *session = [[object userInfo] valueForKey:@"sbURLSession"];
+    
+    // Check if all download tasks have been finished.
+    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+
+        if ([downloadTasks count] == 0) {
+            if (self.backgroundTransferCompletionHandler != nil) {
+                // Copy locally the completion handler.
+                void(^completionHandler)() = self.backgroundTransferCompletionHandler;
+                
+                // Make nil the backgroundTransferCompletionHandler.
+                self.backgroundTransferCompletionHandler = nil;
+                
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    // Call the completion handler to tell the system that there are no other background transfers.
+                    completionHandler();
+                    
+                    [self presentNotification];
+                }];
+            }
+        }
+        else {
+            
+            for(NSURLSessionDownloadTask *task in downloadTasks) [task resume];
+            
+        }
+    }];
+    
+    
+}
+
+-(void)presentNotification {
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    localNotification.alertBody = @"All files have been downloaded!";
+    localNotification.alertAction = @"SBNetWorking!";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    //On sound
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    
+}
+
+-(void)application:(UIApplication*)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    
+}
+
+#pragma mark - App Life Cycle
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -56,4 +145,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 @end
+

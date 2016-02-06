@@ -103,7 +103,8 @@
     tblView.tableHeaderView = searchController.searchBar;
     [tblView reloadData];
     
-    
+    [searchController loadViewIfNeeded];
+        
 }
 
 #pragma mark Update Response Data

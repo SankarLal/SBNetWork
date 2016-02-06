@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1F59FA1C635FBF00A9B02B /* SBFileDownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F59F91C635FBF00A9B02B /* SBFileDownloadTaskViewController.m */; };
+		2D1F59FD1C635FDA00A9B02B /* SBImageDownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F59FC1C635FDA00A9B02B /* SBImageDownloadTaskViewController.m */; };
+		2D1F5A001C635FFC00A9B02B /* SBVideoDownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F59FF1C635FFC00A9B02B /* SBVideoDownloadTaskViewController.m */; };
+		2D1F5A031C63606D00A9B02B /* SBAudioDownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F5A021C63606D00A9B02B /* SBAudioDownloadTaskViewController.m */; };
+		2D1F5A061C63608C00A9B02B /* SBPDFDownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F5A051C63608C00A9B02B /* SBPDFDownloadTaskViewController.m */; };
+		2D1F5A0E1C63631800A9B02B /* SBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F5A0D1C63631800A9B02B /* SBTableView.m */; };
+		2D1F5A121C637AEA00A9B02B /* SBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F5A111C637AEA00A9B02B /* SBDetailsViewController.m */; };
+		2D5E47E51C6607BA00CE3F33 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */; };
+		2D5E47E61C6607C400CE3F33 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */; };
+		2D5E47E71C6607C400CE3F33 /* SBNetWorking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D66837A1C5E6B540071D8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683791C5E6B540071D8AE /* main.m */; };
 		2D6683851C5E6B540071D8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D6683841C5E6B540071D8AE /* Assets.xcassets */; };
 		2D6683881C5E6B540071D8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D6683861C5E6B540071D8AE /* LaunchScreen.storyboard */; };
@@ -16,9 +26,6 @@
 		2D6683B41C5E6C150071D8AE /* SBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683AF1C5E6C150071D8AE /* SBHomeViewController.m */; };
 		2D6683B51C5E6C150071D8AE /* SBJsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */; };
 		2D6683B61C5E6C150071D8AE /* SBImageDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */; };
-		2D6683BD1C5E6CE90071D8AE /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6683BC1C5E6CE90071D8AE /* SBNetWorking.framework */; };
-		2D6683BE1C5E6CEC0071D8AE /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6683BC1C5E6CE90071D8AE /* SBNetWorking.framework */; };
-		2D6683BF1C5E6CEC0071D8AE /* SBNetWorking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6683BC1C5E6CE90071D8AE /* SBNetWorking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2D6683BF1C5E6CEC0071D8AE /* SBNetWorking.framework in Embed Frameworks */,
+				2D5E47E71C6607C400CE3F33 /* SBNetWorking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +60,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D1F59F81C635FBF00A9B02B /* SBFileDownloadTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBFileDownloadTaskViewController.h; sourceTree = "<group>"; };
+		2D1F59F91C635FBF00A9B02B /* SBFileDownloadTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBFileDownloadTaskViewController.m; sourceTree = "<group>"; };
+		2D1F59FB1C635FDA00A9B02B /* SBImageDownloadTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImageDownloadTaskViewController.h; sourceTree = "<group>"; };
+		2D1F59FC1C635FDA00A9B02B /* SBImageDownloadTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImageDownloadTaskViewController.m; sourceTree = "<group>"; };
+		2D1F59FE1C635FFC00A9B02B /* SBVideoDownloadTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBVideoDownloadTaskViewController.h; sourceTree = "<group>"; };
+		2D1F59FF1C635FFC00A9B02B /* SBVideoDownloadTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBVideoDownloadTaskViewController.m; sourceTree = "<group>"; };
+		2D1F5A011C63606D00A9B02B /* SBAudioDownloadTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBAudioDownloadTaskViewController.h; sourceTree = "<group>"; };
+		2D1F5A021C63606D00A9B02B /* SBAudioDownloadTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBAudioDownloadTaskViewController.m; sourceTree = "<group>"; };
+		2D1F5A041C63608C00A9B02B /* SBPDFDownloadTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPDFDownloadTaskViewController.h; sourceTree = "<group>"; };
+		2D1F5A051C63608C00A9B02B /* SBPDFDownloadTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPDFDownloadTaskViewController.m; sourceTree = "<group>"; };
+		2D1F5A0C1C63631800A9B02B /* SBTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTableView.h; sourceTree = "<group>"; };
+		2D1F5A0D1C63631800A9B02B /* SBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTableView.m; sourceTree = "<group>"; };
+		2D1F5A101C637AEA00A9B02B /* SBDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDetailsViewController.h; sourceTree = "<group>"; };
+		2D1F5A111C637AEA00A9B02B /* SBDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDetailsViewController.m; sourceTree = "<group>"; };
+		2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SBNetWorking.framework; sourceTree = "<group>"; };
 		2D6683751C5E6B540071D8AE /* SBNetWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBNetWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6683791C5E6B540071D8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D6683841C5E6B540071D8AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +94,6 @@
 		2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonViewController.m; sourceTree = "<group>"; };
 		2D6683B21C5E6C150071D8AE /* SBImageDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImageDownloadViewController.h; sourceTree = "<group>"; };
 		2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImageDownloadViewController.m; sourceTree = "<group>"; };
-		2D6683BC1C5E6CE90071D8AE /* SBNetWorking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SBNetWorking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D6683BD1C5E6CE90071D8AE /* SBNetWorking.framework in Frameworks */,
-				2D6683BE1C5E6CEC0071D8AE /* SBNetWorking.framework in Frameworks */,
+				2D5E47E51C6607BA00CE3F33 /* SBNetWorking.framework in Frameworks */,
+				2D5E47E61C6607C400CE3F33 /* SBNetWorking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,10 +123,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D1F5A071C6360AC00A9B02B /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2D6683AB1C5E6BA40071D8AE /* SBAppDelegate.h */,
+				2D6683AC1C5E6BA40071D8AE /* SBAppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		2D1F5A081C6360C000A9B02B /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D1F5A091C6360EF00A9B02B /* Home View Controller */,
+				2D1F5A0A1C63610600A9B02B /* Data Task View Controller */,
+				2D1F5A0B1C63612F00A9B02B /* Download Task View Controller */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		2D1F5A091C6360EF00A9B02B /* Home View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D6683AE1C5E6C150071D8AE /* SBHomeViewController.h */,
+				2D6683AF1C5E6C150071D8AE /* SBHomeViewController.m */,
+			);
+			name = "Home View Controller";
+			sourceTree = "<group>";
+		};
+		2D1F5A0A1C63610600A9B02B /* Data Task View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D6683B01C5E6C150071D8AE /* SBJsonViewController.h */,
+				2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */,
+				2D6683B21C5E6C150071D8AE /* SBImageDownloadViewController.h */,
+				2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */,
+			);
+			name = "Data Task View Controller";
+			sourceTree = "<group>";
+		};
+		2D1F5A0B1C63612F00A9B02B /* Download Task View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D1F59F81C635FBF00A9B02B /* SBFileDownloadTaskViewController.h */,
+				2D1F59F91C635FBF00A9B02B /* SBFileDownloadTaskViewController.m */,
+				2D1F59FB1C635FDA00A9B02B /* SBImageDownloadTaskViewController.h */,
+				2D1F59FC1C635FDA00A9B02B /* SBImageDownloadTaskViewController.m */,
+				2D1F59FE1C635FFC00A9B02B /* SBVideoDownloadTaskViewController.h */,
+				2D1F59FF1C635FFC00A9B02B /* SBVideoDownloadTaskViewController.m */,
+				2D1F5A011C63606D00A9B02B /* SBAudioDownloadTaskViewController.h */,
+				2D1F5A021C63606D00A9B02B /* SBAudioDownloadTaskViewController.m */,
+				2D1F5A041C63608C00A9B02B /* SBPDFDownloadTaskViewController.h */,
+				2D1F5A051C63608C00A9B02B /* SBPDFDownloadTaskViewController.m */,
+				2D1F5A101C637AEA00A9B02B /* SBDetailsViewController.h */,
+				2D1F5A111C637AEA00A9B02B /* SBDetailsViewController.m */,
+			);
+			name = "Download Task View Controller";
+			sourceTree = "<group>";
+		};
+		2D1F5A0F1C63632E00A9B02B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D1F5A0C1C63631800A9B02B /* SBTableView.h */,
+				2D1F5A0D1C63631800A9B02B /* SBTableView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		2D66836C1C5E6B540071D8AE = {
 			isa = PBXGroup;
 			children = (
-				2D6683BC1C5E6CE90071D8AE /* SBNetWorking.framework */,
+				2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */,
 				2D6683771C5E6B540071D8AE /* SBNetWork */,
 				2D6683911C5E6B540071D8AE /* SBNetWorkTests */,
 				2D66839C1C5E6B540071D8AE /* SBNetWorkUITests */,
@@ -126,14 +214,9 @@
 		2D6683771C5E6B540071D8AE /* SBNetWork */ = {
 			isa = PBXGroup;
 			children = (
-				2D6683AB1C5E6BA40071D8AE /* SBAppDelegate.h */,
-				2D6683AC1C5E6BA40071D8AE /* SBAppDelegate.m */,
-				2D6683AE1C5E6C150071D8AE /* SBHomeViewController.h */,
-				2D6683AF1C5E6C150071D8AE /* SBHomeViewController.m */,
-				2D6683B01C5E6C150071D8AE /* SBJsonViewController.h */,
-				2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */,
-				2D6683B21C5E6C150071D8AE /* SBImageDownloadViewController.h */,
-				2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */,
+				2D1F5A071C6360AC00A9B02B /* App Delegate */,
+				2D1F5A081C6360C000A9B02B /* View Controller */,
+				2D1F5A0F1C63632E00A9B02B /* View */,
 				2D6683841C5E6B540071D8AE /* Assets.xcassets */,
 				2D6683861C5E6B540071D8AE /* LaunchScreen.storyboard */,
 				2D6683891C5E6B540071D8AE /* Info.plist */,
@@ -236,6 +319,11 @@
 				TargetAttributes = {
 					2D6683741C5E6B540071D8AE = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2D66838D1C5E6B540071D8AE = {
 						CreatedOnToolsVersion = 7.2;
@@ -299,10 +387,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D6683AD1C5E6BA40071D8AE /* SBAppDelegate.m in Sources */,
+				2D1F5A0E1C63631800A9B02B /* SBTableView.m in Sources */,
+				2D1F5A001C635FFC00A9B02B /* SBVideoDownloadTaskViewController.m in Sources */,
+				2D1F5A031C63606D00A9B02B /* SBAudioDownloadTaskViewController.m in Sources */,
 				2D6683B61C5E6C150071D8AE /* SBImageDownloadViewController.m in Sources */,
 				2D6683B41C5E6C150071D8AE /* SBHomeViewController.m in Sources */,
+				2D1F59FA1C635FBF00A9B02B /* SBFileDownloadTaskViewController.m in Sources */,
+				2D1F59FD1C635FDA00A9B02B /* SBImageDownloadTaskViewController.m in Sources */,
 				2D66837A1C5E6B540071D8AE /* main.m in Sources */,
 				2D6683B51C5E6C150071D8AE /* SBJsonViewController.m in Sources */,
+				2D1F5A121C637AEA00A9B02B /* SBDetailsViewController.m in Sources */,
+				2D1F5A061C63608C00A9B02B /* SBPDFDownloadTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +533,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SBNetWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sankarlal.SBNetWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -453,6 +549,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SBNetWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sankarlal.SBNetWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -526,6 +623,7 @@
 				2D6683A41C5E6B540071D8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D6683A51C5E6B540071D8AE /* Build configuration list for PBXNativeTarget "SBNetWorkTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +632,7 @@
 				2D6683A71C5E6B540071D8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D6683A81C5E6B540071D8AE /* Build configuration list for PBXNativeTarget "SBNetWorkUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +641,7 @@
 				2D6683AA1C5E6B540071D8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

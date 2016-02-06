@@ -2,6 +2,7 @@
 #import "SBHomeViewController.h"
 #import "SBJsonViewController.h"
 #import "SBImageDownloadViewController.h"
+#import "SBFileDownloadTaskViewController.h"
 
 @interface SBHomeViewController ()
 
@@ -20,10 +21,10 @@
 
 -(void)setUpUserInterface {
     
-    CGSize size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    CGSize size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     
     CGFloat yValue = size.height - 100;
-    yValue = yValue / 3;
+    yValue = yValue / 4;
     
     CGFloat xValue = size.width - 200;
     xValue = xValue / 2;
@@ -38,10 +39,17 @@
     UIButton *imageDownloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     imageDownloadButton.frame = CGRectMake(xValue, jsonButton.frame.origin.y + jsonButton.frame.size.height + yValue, 200, 50);
     imageDownloadButton.backgroundColor = [UIColor purpleColor];
-    [imageDownloadButton setTitle:@"DOWNLOAD IMAGE" forState:UIControlStateNormal];
+    [imageDownloadButton setTitle:@"DOWNLOAD IMAGES" forState:UIControlStateNormal];
     [imageDownloadButton addTarget:self action:@selector(performImageDownloadButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:imageDownloadButton];
-    
+
+    UIButton *fileDownloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    fileDownloadButton.frame = CGRectMake(xValue, imageDownloadButton.frame.origin.y + imageDownloadButton.frame.size.height + yValue, 200, 50);
+    fileDownloadButton.backgroundColor = [UIColor purpleColor];
+    [fileDownloadButton setTitle:@"DOWNLOAD FILES" forState:UIControlStateNormal];
+    [fileDownloadButton addTarget:self action:@selector(performFileDownloadButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:fileDownloadButton];
+
 
 }
 
@@ -53,6 +61,11 @@
 -(void)performImageDownloadButton {
     [self.navigationController pushViewController:[[SBImageDownloadViewController alloc] init] animated:YES];
 
+}
+
+-(void)performFileDownloadButton {
+    [self.navigationController pushViewController:[[SBFileDownloadTaskViewController alloc] init] animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

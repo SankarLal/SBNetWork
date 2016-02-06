@@ -88,7 +88,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
 
 
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(3.0, 8, 125, ROW_HEIGHT - 16)];
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5.0, 8, 100, 100)];
         imageView.tag = IMAGE_TAG;
         [cell addSubview:imageView];
         
@@ -97,13 +97,14 @@
         indicator.color = [UIColor blackColor];
         indicator.tag = INDICATOR_TAG;
         [indicator hidesWhenStopped];
-        indicator.center = imageView.center;
+        indicator.center = CGPointMake(imageView.frame.size.width / 2 , imageView.frame.size.height / 2 - 5);
         [indicator startAnimating];
         [imageView addSubview:indicator];
         
         label1 = [[UILabel alloc] initWithFrame:CGRectMake(imageView.frame.size.width + 8, 3.0, tblView.frame.size.width - (imageView.frame.size.width + 16), ROW_HEIGHT)];
         label1.tag = LABEL1_TAG;
         label1.textColor = [UIColor purpleColor];
+        label1.textAlignment = NSTextAlignmentCenter;
         label1.text = [NSString stringWithFormat:@"IndexPath Section Is %ld",(long)indexPath.section];
         [cell.contentView addSubview:label1];
 
@@ -114,6 +115,9 @@
     label1.text = [NSString stringWithFormat:@"IndexPath Section Is %ld",(long)indexPath.section];
     
     imageView = (UIImageView*)[cell viewWithTag:IMAGE_TAG];
+    imageView.image = [[UIImage imageNamed:@"D_Image"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    imageView.tintColor = [UIColor purpleColor];
+    
     [(UIActivityIndicatorView*)[imageView viewWithTag:INDICATOR_TAG] startAnimating];
     
 // ******** Data Task Request For Image Download, Without Cache ******** //
@@ -155,6 +159,7 @@
     return cell;
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

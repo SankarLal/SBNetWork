@@ -8,6 +8,9 @@ typedef void (^OnSuccess)(NSDictionary *dictionary);
 typedef void (^OnFailure)(NSError *error);
 typedef void (^OnImageSuccess)(UIImage *image);
 
+typedef void (^OnDownloadTaskData)(NSData *data);
+typedef void (^OnDownloadProgress)(double progressValue);
+
 
 @interface SBManager : NSObject
 
@@ -27,6 +30,10 @@ typedef void (^OnImageSuccess)(UIImage *image);
 
 #pragma mark - Request Header
 - (void)setHeaders:(NSDictionary *)headers;
+
+#pragma mark - ***********************************************************************************************************************
+#pragma mark - * Data Task Request Process *
+#pragma mark - ***********************************************************************************************************************
 
 #pragma mark - Data Task Request Without Cache
 -(void)performDataTaskWithExecuteGetURL:(NSString*)url
@@ -90,7 +97,9 @@ typedef void (^OnImageSuccess)(UIImage *image);
                                        onFailure:(OnFailure)failure;
 
 #pragma mark - ***********************************************************************************************************************
-#pragma mark - * Image Downlod Process *
+#pragma mark - * Image Downlod - Data Task Process *
+#pragma mark - ***********************************************************************************************************************
+
 #pragma mark - Data Task Request For Image Download, Without Cache
 -(void)performDataTaskWithDownlaodImageURL:(NSString*)url
                             onImageSuccess:(OnImageSuccess)imageSuccess
@@ -107,6 +116,37 @@ typedef void (^OnImageSuccess)(UIImage *image);
                                      onImageSuccess:(OnImageSuccess)imageSuccess
                                           onFailure:(OnFailure)failure;
 
+#pragma mark - ***********************************************************************************************************************
+#pragma mark - * Downlod Files (Image, Video, Audio, PDF etc.,) - Download Task Process *
+#pragma mark - ***********************************************************************************************************************
+
+#pragma mark - Download Task Request For Files Download, Without Cache
+-(void)performDownloadTaskWithDownlaodFileURL:(NSString*)url
+                           onDownloadTaskData:(OnDownloadTaskData)downloadTaskData
+                                    onFailure:(OnFailure)failure
+                           onDownloadProgress:(OnDownloadProgress)downloadProgress;
+
+
+#pragma mark - Download Task Request For Files Download, With Cache - Default System Cache Time
+-(void)performDownloadTaskWithCacheAndDownlaodFileURL:(NSString*)url
+                                   onDownloadTaskData:(OnDownloadTaskData)downloadTaskData
+                                            onFailure:(OnFailure)failure
+                                   onDownloadProgress:(OnDownloadProgress)downloadProgress;
+
+
+#pragma mark - Download Task Request For Files Download, With Cache - File Cache Time will be different for Each Request
+- (void)performDownloadTaskWithCacheAndDownlaodFileURL:(NSString *)url
+                              cacheExpireTimeInMinutes:(NSInteger)cacheExpireTimeInMinutes
+                                    onDownloadTaskData:(OnDownloadTaskData)downloadTaskData
+                                             onFailure:(OnFailure)failure
+                                    onDownloadProgress:(OnDownloadProgress)downloadProgress;
+
+
+#pragma mark - Pause, Resume And Cancel The Download Process
+-(void)pauseResumeRequestedURL:(NSString *)url;
+-(void)cancelDownloadingRequestedURL:(NSString *)url;
+
+#pragma mark - ***********************************************************************************************************************
 
 #pragma mark - Update NetWork Failure Message - As default "No Internet Connection."
 -(void)updateNetWorkFailureMessage:(NSString*)failureMessage;
