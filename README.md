@@ -133,7 +133,7 @@ Add to your AppDelegate.m class given below configuration.
 
 ```
 ## Initialization with callback Using Blocks
-## JSON RESPONSE
+### JSON RESPONSE
 ```objective-c
 If you want to add headers, user below method before calling the services.
    
@@ -195,7 +195,7 @@ If you want to add headers, user below method before calling the services.
                                                                    
                                                                }];
 ```
-## DOWNLOAD IMAGES - DATA TASK
+### DOWNLOAD IMAGES - DATA TASK
 ```objective-c
 // ******** Data Task Request For Image Download, Without Cache ******** //
     [[SBManager sharedInstance] performDataTaskWithDownlaodImageURL:imageArray[indexPath.section]
@@ -234,7 +234,7 @@ If you want to add headers, user below method before calling the services.
 
 
 ```
-## DOWNLOAD IMAGES, VIDEOS, AUDIOS AND PDF'S - DOWNLOAD TASK
+### DOWNLOAD IMAGES, VIDEOS, AUDIOS AND PDF'S - DOWNLOAD TASK
 ```objective-c
    
 // ********  Download Task Request For Files Download, Without Cache ******** //
