@@ -1,6 +1,8 @@
 SBNetWorking
 ================
-  This is simple Network call using NSURLSession for iOS, developed in Objective C. Includes Cache, callbacks using blocks as well and we can downlod the images using NSURLSessionDataTask.
+  This is simple Network call using NSURLSession for iOS, developed in Objective C. Includes Cache, callbacks using blocks as well as we can downlod the Images using NSURLSessionDataTask and downlaod the Images, Videos, Audios and PDF's using NSURLSessionDownloadTask. Downloads are keep on running in Background state, Supended state, Terminated state and Not Running state.
+  
+  - [X] If an iOS app is terminated by the system and relaunched, the app can use the same identifier to create a new configuration object and session and retrieve the status of transfers that were in progress at the time of termination. This behavior applies only for normal termination of the app by the system. If the user terminates the app from the multitasking screen, the system cancels all of the session’s background transfers. In addition, the system does not automatically relaunch apps that were force quit by the user. The user must explicitly relaunch the app before transfers can begin again.
 
 ## Demo
 ## Installation
@@ -30,8 +32,94 @@ Add to your AppDelegate.m class given below configuration.
     
     // Update NetWork Failure Message
     [[SBManager sharedInstance] updateNetWorkFailureMessage:@"Internet connection appears offline."];
+    
+    // SB Reachability Notification
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(SBNetworkAvailbility:)
+                                                 name:@"SB_NETWORK_REACHABILITY"
+                                               object:nil];
+    
+    // Background Download Process
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(URLSessionDidFinishEventsForBackgroundURLSession:)
+                                                 name:@"SB_BACKGROUND_URLSESSION"
+                                               object:nil];
+    
+    //need to enable background fetch
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
+    // Register Notification
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+
     return YES;
 }
+
+// ********  SBNetwork Availbility ******** //
+-(void)SBNetworkAvailbility :(NSNotification*)object {
+    
+    BOOL isSBNetworkAvailablity = [[[object userInfo] valueForKey:@"isSBNetworkAvailable"] boolValue];
+    NSLog(@"isSBNetworkAvailablity %d",isSBNetworkAvailablity);
+    
+}
+
+// ********  Background Download Process ******** //
+-(void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler{
+    
+    self.backgroundTransferCompletionHandler = completionHandler;
+    
+    
+}
+
+-(void)URLSessionDidFinishEventsForBackgroundURLSession:(NSNotification *)object {
+    
+    NSURLSession *session = [[object userInfo] valueForKey:@"sbURLSession"];
+    
+    // Check if all download tasks have been finished.
+    [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+
+        if ([downloadTasks count] == 0) {
+            if (self.backgroundTransferCompletionHandler != nil) {
+                // Copy locally the completion handler.
+                void(^completionHandler)() = self.backgroundTransferCompletionHandler;
+                
+                // Make nil the backgroundTransferCompletionHandler.
+                self.backgroundTransferCompletionHandler = nil;
+                
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    // Call the completion handler to tell the system that there are no other background transfers.
+                    completionHandler();
+                    
+                    [self presentNotification];
+                }];
+            }
+        }
+        else {
+            
+            for(NSURLSessionDownloadTask *task in downloadTasks) [task resume];
+            
+        }
+    }];
+    
+    
+}
+
+-(void)presentNotification {
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    localNotification.alertBody = @"All files have been downloaded!";
+    localNotification.alertAction = @"SBNetWorking!";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    //On sound
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    
+}
+
 ```
 ## Initialization with callback Using Blocks
 ## JSON RESPONSE
@@ -96,7 +184,7 @@ If you want to add headers, user below method before calling the services.
                                                                    
                                                                }];
 ```
-## DOWNLOAD IMAGES
+## DOWNLOAD IMAGES - DATA TASK
 ```objective-c
 // ******** Data Task Request For Image Download, Without Cache ******** //
     [[SBManager sharedInstance] performDataTaskWithDownlaodImageURL:imageArray[indexPath.section]
@@ -135,6 +223,45 @@ If you want to add headers, user below method before calling the services.
 
 
 ```
+## DOWNLOAD IMAGES, VIDEOS, AUDIOS AND PDF'S - DOWNLOAD TASK
+```objective-c
+   
+// ********  Download Task Request For Files Download, Without Cache ******** //
+    [[SBManager sharedInstance] performDownloadTaskWithDownlaodFileURL:fileArray [indexPath.section]
+                                                    onDownloadTaskData:^(NSData *data) {
+                                                        
+                                                        
+                                                    } onFailure:^(NSError *error) {
+                                                        
+                                                        
+                                                    } onDownloadProgress:^(double progressValue) {
+                                                        
+                                                    }];
+    
+    
+// ******** Download Task Request For Files Download, With Cache - Default System Cache Time ******** //
+    [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
+                                                            onDownloadTaskData:^(NSData *data) {
+                                                                
+                                                            } onFailure:^(NSError *error) {
+                                                                
+                                                            } onDownloadProgress:^(double progressValue) {
+                                                                
+                                                            }];
+                                                         
+// ******** DownloadDownload Task Request For Files Download, With Cache - File Cache Time will be different for Each Request ******** //
+    [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
+                                                      cacheExpireTimeInMinutes:10
+                                                            onDownloadTaskData:^(NSData *data) {
+
+                                                            } onFailure:^(NSError *error) {
+                                                                
+                                                            } onDownloadProgress:^(double progressValue) {
+                                                                
+                                                            }];   
+
+```
+
 ## Contact
 sankarlal20@gmail.com
 
