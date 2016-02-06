@@ -1,7 +1,18 @@
 SBNetWorking
 ================
-  This is simple Network call using NSURLSession for iOS, developed in Objective C. Includes Cache, callbacks using blocks as well as we can downlod the Images using NSURLSessionDataTask and downlaod the Images, Videos, Audios and PDF's using NSURLSessionDownloadTask. Downloads are keep on running in Background state, Supended state, Terminated state and Not Running state.
-  
+This is simple Webservice call using NSURLSession for iOS which is developed in Objective C.
+
+### Features:
+
+1. SBNetWorking framework will hepls us to write minimal code and faster implementation of web service into our application.
+2. Using this framework we can perform GET, DELETE, POST, PUT methods using NSURLSession along with Cache or without Cache.
+3. Async Image Download with Cache and without Cache the response using NSURLSessionDataTask.
+4. Async Images, Videos, Audios and PDF's Download with Cache and without Cache the response using NSURLSessionDownloadTask.
+5. Downloads are keep on running in Background state, Supended state, Terminated state and Not Running state.
+6. This framework makes it easy to quickly download one or several large file(s).
+7. Supports Pause / Resume and Cancel the downloads.
+8. Progression/Completion Blocks.
+
   - [X] If an iOS app is terminated by the system and relaunched, the app can use the same identifier to create a new configuration object and session and retrieve the status of transfers that were in progress at the time of termination. This behavior applies only for normal termination of the app by the system. If the user terminates the app from the multitasking screen, the system cancels all of the session’s background transfers. In addition, the system does not automatically relaunch apps that were force quit by the user. The user must explicitly relaunch the app before transfers can begin again.
 
 ## Demo
