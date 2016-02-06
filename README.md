@@ -1,8 +1,8 @@
 SBNetWorking
 ================
-This is simple Webservice call using NSURLSession for iOS which is developed in Objective C.
+This is simple Web service call using NSURLSession for iOS which is developed in Objective C.
 
-### Features:
+### Benefits:
 
 1. SBNetWorking framework will hepls us to write minimal code and faster implementation of web service into our application.
 2. Using this framework we can perform GET, DELETE, POST, PUT methods using NSURLSession along with Cache or without Cache.
