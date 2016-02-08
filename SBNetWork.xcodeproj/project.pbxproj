@@ -14,9 +14,6 @@
 		2D1F5A061C63608C00A9B02B /* SBPDFDownloadTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F5A051C63608C00A9B02B /* SBPDFDownloadTaskViewController.m */; };
 		2D1F5A0E1C63631800A9B02B /* SBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F5A0D1C63631800A9B02B /* SBTableView.m */; };
 		2D1F5A121C637AEA00A9B02B /* SBDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F5A111C637AEA00A9B02B /* SBDetailsViewController.m */; };
-		2D5E47E51C6607BA00CE3F33 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */; };
-		2D5E47E61C6607C400CE3F33 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */; };
-		2D5E47E71C6607C400CE3F33 /* SBNetWorking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D66837A1C5E6B540071D8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683791C5E6B540071D8AE /* main.m */; };
 		2D6683851C5E6B540071D8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D6683841C5E6B540071D8AE /* Assets.xcassets */; };
 		2D6683881C5E6B540071D8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D6683861C5E6B540071D8AE /* LaunchScreen.storyboard */; };
@@ -26,6 +23,9 @@
 		2D6683B41C5E6C150071D8AE /* SBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683AF1C5E6C150071D8AE /* SBHomeViewController.m */; };
 		2D6683B51C5E6C150071D8AE /* SBJsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */; };
 		2D6683B61C5E6C150071D8AE /* SBImageDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */; };
+		2D6BA2A61C68628F00966910 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6BA2A51C68628F00966910 /* SBNetWorking.framework */; };
+		2D6BA2A71C68629500966910 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6BA2A51C68628F00966910 /* SBNetWorking.framework */; };
+		2D6BA2A81C68629500966910 /* SBNetWorking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6BA2A51C68628F00966910 /* SBNetWorking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2D5E47E71C6607C400CE3F33 /* SBNetWorking.framework in Embed Frameworks */,
+				2D6BA2A81C68629500966910 /* SBNetWorking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +74,6 @@
 		2D1F5A0D1C63631800A9B02B /* SBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTableView.m; sourceTree = "<group>"; };
 		2D1F5A101C637AEA00A9B02B /* SBDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDetailsViewController.h; sourceTree = "<group>"; };
 		2D1F5A111C637AEA00A9B02B /* SBDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDetailsViewController.m; sourceTree = "<group>"; };
-		2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SBNetWorking.framework; sourceTree = "<group>"; };
 		2D6683751C5E6B540071D8AE /* SBNetWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBNetWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D6683791C5E6B540071D8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D6683841C5E6B540071D8AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonViewController.m; sourceTree = "<group>"; };
 		2D6683B21C5E6C150071D8AE /* SBImageDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImageDownloadViewController.h; sourceTree = "<group>"; };
 		2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImageDownloadViewController.m; sourceTree = "<group>"; };
+		2D6BA2A51C68628F00966910 /* SBNetWorking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SBNetWorking.framework; path = Framework/Simulator/SBNetWorking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D5E47E51C6607BA00CE3F33 /* SBNetWorking.framework in Frameworks */,
-				2D5E47E61C6607C400CE3F33 /* SBNetWorking.framework in Frameworks */,
+				2D6BA2A61C68628F00966910 /* SBNetWorking.framework in Frameworks */,
+				2D6BA2A71C68629500966910 /* SBNetWorking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +193,7 @@
 		2D66836C1C5E6B540071D8AE = {
 			isa = PBXGroup;
 			children = (
-				2D5E47E41C6607BA00CE3F33 /* SBNetWorking.framework */,
+				2D6BA2A51C68628F00966910 /* SBNetWorking.framework */,
 				2D6683771C5E6B540071D8AE /* SBNetWork */,
 				2D6683911C5E6B540071D8AE /* SBNetWorkTests */,
 				2D66839C1C5E6B540071D8AE /* SBNetWorkUITests */,
@@ -531,6 +531,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Framework/Simulator",
 				);
 				INFOPLIST_FILE = SBNetWork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -547,6 +548,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Framework/Simulator",
 				);
 				INFOPLIST_FILE = SBNetWork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

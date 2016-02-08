@@ -164,29 +164,29 @@
     ((UIButton *)[cell.contentView viewWithTag:DELETE_FILE_TAG]).hidden= NO;
     
     // Download Task Request For Files Download, Without Cache
-    //    [[SBManager sharedInstance] performDownloadTaskWithDownlaodFileURL:fileArray [indexPath.section]
-    //                                                    onDownloadTaskData:^(NSData *data) {
-    //
-    //
-    //                                                    } onFailure:^(NSError *error) {
-    //
-    //
-    //                                                    } onDownloadProgress:^(double progressValue) {
-    //
-    //                                                    }];
+//    [[SBManager sharedInstance] performDownloadTaskWithDownlaodFileURL:fileArray [indexPath.section]
+//                                                    onDownloadTaskData:^(NSData *data) {
+//                                                        
+//                                                        
+//                                                    } onFailure:^(NSError *error) {
+//                                                        
+//                                                        
+//                                                    } onDownloadProgress:^(double progressValue) {
+//                                                        
+//                                                    }];
+//    
+    
+        // Download Task Request For Files Download, With Cache - Default System Cache Time
+//    [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
+//                                                            onDownloadTaskData:^(NSData *data) {
+//                                                                
+//                                                            } onFailure:^(NSError *error) {
+//                                                                
+//                                                            } onDownloadProgress:^(double progressValue) {
+//                                                                
+//                                                            }];
     
     
-    //    // Download Task Request For Files Download, With Cache - Default System Cache Time
-    //    [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
-    //                                                            onDownloadTaskData:^(NSData *data) {
-    //
-    //                                                            } onFailure:^(NSError *error) {
-    //
-    //                                                            } onDownloadProgress:^(double progressValue) {
-    //
-    //                                                            }];
-    //
-    //
     // Download Task Request For Files Download, With Cache - File Cache Time will be different for Each Request
     [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
                                                       cacheExpireTimeInMinutes:10

@@ -57,7 +57,7 @@
     return YES;
 }
 
-#pragma mark - Background Download Process
+#pragma mark - SBNetwork Availbility
 -(void)SBNetworkAvailbility :(NSNotification*)object {
     
     BOOL isSBNetworkAvailablity = [[[object userInfo] valueForKey:@"isSBNetworkAvailable"] boolValue];
