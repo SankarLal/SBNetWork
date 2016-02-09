@@ -42,15 +42,15 @@
     [imageDownloadButton setTitle:@"DOWNLOAD IMAGES" forState:UIControlStateNormal];
     [imageDownloadButton addTarget:self action:@selector(performImageDownloadButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:imageDownloadButton];
-
+    
     UIButton *fileDownloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     fileDownloadButton.frame = CGRectMake(xValue, imageDownloadButton.frame.origin.y + imageDownloadButton.frame.size.height + yValue, 200, 50);
     fileDownloadButton.backgroundColor = [UIColor purpleColor];
     [fileDownloadButton setTitle:@"DOWNLOAD FILES" forState:UIControlStateNormal];
     [fileDownloadButton addTarget:self action:@selector(performFileDownloadButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:fileDownloadButton];
-
-
+    
+    
 }
 
 -(void)performJsonButton {
@@ -60,7 +60,7 @@
 
 -(void)performImageDownloadButton {
     [self.navigationController pushViewController:[[SBImageDownloadViewController alloc] init] animated:YES];
-
+    
 }
 
 -(void)performFileDownloadButton {

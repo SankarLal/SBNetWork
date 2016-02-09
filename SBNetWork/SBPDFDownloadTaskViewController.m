@@ -20,13 +20,12 @@
     SBTableView *sbTblView = [[SBTableView alloc] initWithFrame:self.view.bounds];
     sbTblView.delegate = self;
     [sbTblView setFileArrayValue:@[
-//                                   @"https://developer.apple.com/library/ios/documentation/iphone/conceptual/iphoneosprogrammingguide/iphoneappprogrammingguide.pdf",
                                    @"http://swift-lang.org/guides/trunk/userguide/userguide.pdf"
                                    ]
               sbDownloadFileType:SBDownloadFileTypePDF];
     
     [self.view addSubview:sbTblView];
-
+    
 }
 
 -(void)selectedFileType:(SBDownloadFileType)fileType filePath:(NSString *)filePath {

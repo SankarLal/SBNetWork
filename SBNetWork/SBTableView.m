@@ -1,9 +1,10 @@
 
 
 #import "SBTableView.h"
-#import <SBNetWorking/SBManager.h>
 #import <UIKit/UIKit.h>
 #import "SBDetailsViewController.h"
+
+#import <SBNetWorking/SBNetWorking.h>
 
 #define ROW_HEIGHT 115.0
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
@@ -135,18 +136,18 @@
         [deleteFileButton addTarget:self action:@selector(performDeleteFileButton:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:deleteFileButton];
         
-
+        
         
     }
     
-
+    
     label1      = (UILabel*)[cell.contentView viewWithTag:LABEL1_TAG];
     label1.text = [NSString stringWithFormat:@"INDEX %ld",(long)indexPath.section];
     
     imageView = (UIImageView*)[cell viewWithTag:IMAGE_TAG];
     imageView.image = [[self tableViewCellImageType:sBDownloadFileType] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     imageView.tintColor = HEADER_COLOR;
-
+    
     [(UIActivityIndicatorView*)[imageView viewWithTag:INDICATOR_TAG] startAnimating];
     
     ((UIProgressView *)[cell.contentView viewWithTag:PROGRESS_VIEW_D_TAG]).frame=CGRectMake(2, ROW_HEIGHT , tblView.frame.size.width - 4, 20);
@@ -164,103 +165,103 @@
     ((UIButton *)[cell.contentView viewWithTag:DELETE_FILE_TAG]).hidden= NO;
     
     // Download Task Request For Files Download, Without Cache
-//    [[SBManager sharedInstance] performDownloadTaskWithDownlaodFileURL:fileArray [indexPath.section]
-//                                                    onDownloadTaskData:^(NSData *data) {
-//                                                        
-//                                                        
-//                                                    } onFailure:^(NSError *error) {
-//                                                        
-//                                                        
-//                                                    } onDownloadProgress:^(double progressValue) {
-//                                                        
-//                                                    }];
-//    
+    //    [[SBManager sharedInstance] performDownloadTaskWithDownlaodFileURL:fileArray [indexPath.section]
+    //                                                    onDownloadTaskData:^(NSData *data) {
+    //
+    //
+    //                                                    } onFailure:^(NSError *error) {
+    //
+    //
+    //                                                    } onDownloadProgress:^(double progressValue) {
+    //
+    //                                                    }];
+    //
     
-        // Download Task Request For Files Download, With Cache - Default System Cache Time
-//    [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
-//                                                            onDownloadTaskData:^(NSData *data) {
-//                                                                
-//                                                            } onFailure:^(NSError *error) {
-//                                                                
-//                                                            } onDownloadProgress:^(double progressValue) {
-//                                                                
-//                                                            }];
+    // Download Task Request For Files Download, With Cache - Default System Cache Time
+    //    [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
+    //                                                            onDownloadTaskData:^(NSData *data) {
+    //
+    //                                                            } onFailure:^(NSError *error) {
+    //
+    //                                                            } onDownloadProgress:^(double progressValue) {
+    //
+    //                                                            }];
     
     
     // Download Task Request For Files Download, With Cache - File Cache Time will be different for Each Request
-    [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
-                                                      cacheExpireTimeInMinutes:10
-                                                            onDownloadTaskData:^(NSData *data) {
-                                                              
-                                                                ((UIProgressView *)[cell.contentView viewWithTag:PROGRESS_VIEW_D_TAG]).hidden = YES;
-                                                                [(UIActivityIndicatorView*)[imageView viewWithTag:INDICATOR_TAG] stopAnimating];
-                                                                ((UIButton *)[cell.contentView viewWithTag:PAUSE_RESUME_FILE_TAG]).hidden = YES;
-                                                                ((UIButton *)[cell.contentView viewWithTag:DELETE_FILE_TAG]).hidden= YES;
+      [[SBManager sharedInstance] performDownloadTaskWithCacheAndDownlaodFileURL:fileArray [indexPath.section]
+                                                       cacheExpireTimeInMinutes:10
+                                                    onDownloadTaskData:^(NSData *data) {
+                                                        
+                                                        ((UIProgressView *)[cell.contentView viewWithTag:PROGRESS_VIEW_D_TAG]).hidden = YES;
+                                                        [(UIActivityIndicatorView*)[imageView viewWithTag:INDICATOR_TAG] stopAnimating];
+                                                        ((UIButton *)[cell.contentView viewWithTag:PAUSE_RESUME_FILE_TAG]).hidden = YES;
+                                                        ((UIButton *)[cell.contentView viewWithTag:DELETE_FILE_TAG]).hidden= YES;
+                                                        
+                                                        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                                                        
+                                                        
+                                                        switch (sBDownloadFileType) {
                                                                 
-                                                                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+                                                            case SBDownloadFileTypeImage: {
                                                                 
-                                                                switch (sBDownloadFileType) {
-                                                                        
-                                                                    case SBDownloadFileTypeImage: {
-                                                                        
-                                                                        cell.accessoryType = UITableViewCellAccessoryNone;
-
-                                                                        UIImage *image = [UIImage imageWithData:data];
-                                                                        
-                                                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                                                            ((UIImageView*)[cell viewWithTag:IMAGE_TAG]).image = image;
-                                                                            
-                                                                        });
-                                                                        
-                                                                    }
-                                                                        
-                                                                        break;
-                                                                        
-                                                                    case SBDownloadFileTypeVideo: {
-                                                                        
-                                                                        [self addFilesInDocumentDirectory:data
-                                                                                                 fileName:[NSString stringWithFormat:@"Video%ld.mp4",(long)indexPath.section] fileType:@"VIDEOS"];
-                                                                        
-                                                                    }
-                                                                        
-                                                                        break;
-                                                                        
-                                                                    case SBDownloadFileTypeAudio: {
-                                                                        [self addFilesInDocumentDirectory:data
-                                                                                                 fileName:[NSString stringWithFormat:@"Audio%ld.mp3",(long)indexPath.section] fileType:@"AUDIOS"];
-                                                                        
-                                                                    }
-
-                                                                        
-                                                                        break;
-                                                                        
-                                                                    case SBDownloadFileTypePDF: {
-                                                                                                                                                
-                                                                        [self addFilesInDocumentDirectory:data
-                                                                                                 fileName:[NSString stringWithFormat:@"PDF%ld.PDF",(long)indexPath.section] fileType:@"PDFS"];
-                                                                        
-                                                                    }
-
-                                                                        
-                                                                        break;
-                                                                        
-                                                                    default:
-                                                                        break;
-                                                                }
+                                                                cell.accessoryType = UITableViewCellAccessoryNone;
+                                                                
+                                                                UIImage *image = [UIImage imageWithData:data];
+                                                                
+                                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                                    ((UIImageView*)[cell viewWithTag:IMAGE_TAG]).image = image;
+                                                                    
+                                                                });
+                                                                
+                                                            }
+                                                                
+                                                                break;
+                                                                
+                                                            case SBDownloadFileTypeVideo: {
+                                                                
+                                                                [self addFilesInDocumentDirectory:data
+                                                                                         fileName:[NSString stringWithFormat:@"Video%ld.mp4",(long)indexPath.section] fileType:@"VIDEOS"];
+                                                                
+                                                            }
+                                                                
+                                                                break;
+                                                                
+                                                            case SBDownloadFileTypeAudio: {
+                                                                [self addFilesInDocumentDirectory:data
+                                                                                         fileName:[NSString stringWithFormat:@"Audio%ld.mp3",(long)indexPath.section] fileType:@"AUDIOS"];
+                                                                
+                                                            }
                                                                 
                                                                 
-                                                            } onFailure:^(NSError *error) {
+                                                                break;
                                                                 
-                                                                NSLog(@"ERROR DOWN %@",error.localizedDescription);
+                                                            case SBDownloadFileTypePDF: {
                                                                 
-                                                            } onDownloadProgress:^(double progressValue) {
+                                                                [self addFilesInDocumentDirectory:data
+                                                                                         fileName:[NSString stringWithFormat:@"PDF%ld.PDF",(long)indexPath.section] fileType:@"PDFS"];
                                                                 
-                                                                NSLog(@"progressValue %f \n SBDownlaodTaskType %ld",progressValue, (long)sBDownloadFileType);
+                                                            }
                                                                 
-                                                                ((UIProgressView *)[cell.contentView viewWithTag:PROGRESS_VIEW_D_TAG]).progress = progressValue;
                                                                 
-                                                            }];
+                                                                break;
+                                                                
+                                                            default:
+                                                                break;
+                                                        }
+                                                        
+                                                        
+                                                    } onFailure:^(NSError *error) {
+                                                        
+                                                        NSLog(@"ERROR DOWN %@",error.localizedDescription);
+                                                        
+                                                    } onDownloadProgress:^(double progressValue) {
+                                                        
+                                                        NSLog(@"progressValue %f \n SBDownlaodTaskType %ld",progressValue, (long)sBDownloadFileType);
+                                                        
+                                                        ((UIProgressView *)[cell.contentView viewWithTag:PROGRESS_VIEW_D_TAG]).progress = progressValue;
+                                                        
+                                                    }];
     
     
     return cell;
@@ -271,9 +272,9 @@
     
     NSString *fileType = @"";
     NSString *fileName = @"";
-
+    
     switch (sBDownloadFileType) {
-       
+            
         case SBDownloadFileTypeVideo:
             fileType = @"VIDEOS";
             fileName = [NSString stringWithFormat:@"/Video%ld.mp4",(long)indexPath.section];
@@ -283,12 +284,12 @@
             fileType = @"AUDIOS";
             fileName = [NSString stringWithFormat:@"/Audio%ld.mp3",(long)indexPath.section];
             break;
-
+            
         case SBDownloadFileTypePDF:
             fileType = @"PDFS";
             fileName = [NSString stringWithFormat:@"/PDF%ld.PDF",(long)indexPath.section];
             break;
-
+            
         default:
             break;
     }
@@ -300,7 +301,7 @@
         [self.delegate selectedFileType:sBDownloadFileType
                                filePath:filePath];
     }
-
+    
     
 }
 
@@ -343,7 +344,7 @@
 -(BOOL)addFilesInDocumentDirectory:(NSData *)responseData fileName:(NSString*)fileName fileType:(NSString *)fileType{
     
     NSString *filePath = [[self createDocumentDirectoryPath:fileType] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",fileName]];
-
+    
     if([responseData writeToFile:filePath atomically:YES])
         return YES;
     else
@@ -361,7 +362,7 @@
 }
 
 -(UIImage *)tableViewCellImageType:(SBDownloadFileType)fileType {
-   
+    
     switch (fileType) {
         case SBDownloadFileTypeImage:
             return [UIImage imageNamed:@"D_Image"];
@@ -370,15 +371,15 @@
         case SBDownloadFileTypeVideo:
             return [UIImage imageNamed:@"D_Video"];
             break;
-
+            
         case SBDownloadFileTypeAudio:
             return [UIImage imageNamed:@"D_Audio"];
             break;
-
+            
         case SBDownloadFileTypePDF:
             return [UIImage imageNamed:@"D_PDF"];
             break;
-
+            
         default:
             break;
     }

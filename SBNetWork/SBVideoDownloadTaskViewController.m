@@ -38,7 +38,7 @@
 }
 
 -(void)selectedFileType:(SBDownloadFileType)fileType filePath:(NSString *)filePath {
-  
+    
     SBDetailsViewController *sbDVCtrl = [[SBDetailsViewController alloc] init];
     [sbDVCtrl showSBDetailFileType:fileType filePath:filePath];
     [self.navigationController pushViewController:sbDVCtrl animated:YES];

@@ -24,7 +24,7 @@
               sbDownloadFileType:SBDownloadFileTypeAudio];
     
     [self.view addSubview:sbTblView];
-
+    
 }
 
 -(void)selectedFileType:(SBDownloadFileType)fileType filePath:(NSString *)filePath {

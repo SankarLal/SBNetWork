@@ -1,7 +1,7 @@
 
 #import "SBAppDelegate.h"
 #import "SBHomeViewController.h"
-#import <SBNetWorking/SBManager.h>
+#import <SBNetWorking/SBNetWorking.h>
 
 @interface SBAppDelegate ()
 
@@ -79,7 +79,7 @@
     
     // Check if all download tasks have been finished.
     [session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
-
+        
         if ([downloadTasks count] == 0) {
             if (self.backgroundTransferCompletionHandler != nil) {
                 // Copy locally the completion handler.

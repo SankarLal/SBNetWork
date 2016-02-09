@@ -9,7 +9,7 @@
 @interface SBDetailsViewController () {
     UIWebView *webView;
     AVAudioPlayer *audioPlayer;
-
+    
 }
 
 @property (strong, nonatomic) MPMoviePlayerController *moviePlayer;
@@ -27,12 +27,12 @@
     
     self.title = @"SB DOWNLOAD TASK";
     self.view.backgroundColor = [UIColor whiteColor];
-
+    
 }
 
 #pragma mark - Show Video, Audio and PDF - Downloaded Content
 -(void)showSBDetailFileType:(SBDownloadFileType)fileType filePath:(NSString *)filePath {
-
+    
     switch (fileType) {
         case SBDownloadFileTypeVideo:
             
@@ -45,13 +45,13 @@
             [self playAudioFromPath:[NSURL fileURLWithPath:filePath]];
             
             break;
-
+            
         case SBDownloadFileTypePDF:
-          
+            
             [self showPDFInWebView:[NSURL fileURLWithPath:filePath]];
             
             break;
-
+            
             
         default:
             break;
@@ -76,7 +76,7 @@
     [self.view addSubview:moviePlayer.view];
     [moviePlayer setFullscreen:YES animated:YES];
     [moviePlayer play];
-
+    
 }
 
 - (void) moviePlayBackDidFinish:(NSNotification*)notification {
@@ -106,8 +106,8 @@
     [audioPlayer prepareToPlay];
     if (audioPlayer.isPlaying) [audioPlayer setCurrentTime:0.0];
     [audioPlayer play];
-
-
+    
+    
 }
 
 #pragma mark - Load PDF File
@@ -118,7 +118,7 @@
     [webView setBackgroundColor:[UIColor clearColor]];
     webView.scalesPageToFit = YES;
     [self.view addSubview:webView];
-
+    
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView setUserInteractionEnabled:YES];
     [webView loadRequest:requestObj];
@@ -135,7 +135,7 @@
         moviePlayer= nil;
     }
     
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

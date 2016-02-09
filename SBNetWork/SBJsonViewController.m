@@ -1,7 +1,7 @@
 
 
 #import "SBJsonViewController.h"
-#import <SBNetWorking/SBManager.h>
+#import <SBNetWorking/SBNetWorking.h>
 
 @interface SBJsonViewController () < UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating > {
     
@@ -26,7 +26,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setUpUserInterface];
-
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -104,7 +104,7 @@
     [tblView reloadData];
     
     [searchController loadViewIfNeeded];
-        
+    
 }
 
 #pragma mark Update Response Data

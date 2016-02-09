@@ -22,9 +22,9 @@
                                    @"http://oi44.tinypic.com/16hvtok.jpg"
                                    ]
               sbDownloadFileType:SBDownloadFileTypeImage];
-
+    
     [self.view addSubview:sbTblView];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
