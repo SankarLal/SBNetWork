@@ -34,6 +34,12 @@
     
     NSString *urlString = @"http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo";
     
+    // If you want to add headers, user below method before calling the services.
+    
+    //    [[SBManager sharedInstance] setHeaders:@{
+    //                                             @"key" : @"value"
+    //                                             }];
+
     // ******** Each and every time, it will fetch to server ******** //
 //    [[SBManager sharedInstance] performDataTaskWithExecuteGetURL:urlString
 //                                                       onSuccess:^(NSDictionary *dictionary) {
@@ -63,6 +69,11 @@
 //                                                       }];
     
     // ******** After five minutes only (Based on "configCacheTimeInMinutes:5" Or "defaultCacheTimeConfig") next call will go to server. Eventhough Network available or Not available ******** //
+    
+    //    [[SBManager sharedInstance] setHeaders:@{
+    //                                             @"key" : @"value"
+    //                                             }];
+
 //    [[SBManager sharedInstance] performDataTaskWithCacheAndExecuteGetURL:urlString
 //                                                               onSuccess:^(NSDictionary *dictionary) {
 //                                                                   
@@ -91,6 +102,10 @@
     
     // ******** After ten minutes (Based on "cacheExpireTimeInMinutes" value) only next call will go to server. Eventhough Network available or Not available ******** \\
     
+    //    [[SBManager sharedInstance] setHeaders:@{
+    //                                             @"key" : @"value"
+    //                                             }];
+
     [[SBManager sharedInstance] performDataTaskWithCacheAndExecuteGetURL:urlString
                                                 cacheExpireTimeInMinutes:10
                                                                onSuccess:^(NSDictionary *dictionary) {
