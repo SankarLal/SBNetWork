@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		lDePtZECV/DDMKrWKRP3lINk1zo=
+		OHCqbFhv4sMsTA911oruaIiCb4U=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -24,17 +24,38 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/SBManager.h</key>
-		<data>
-		iNSmrDAfF7TMID/nK1GzSmLrnPc=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			iNSmrDAfF7TMID/nK1GzSmLrnPc=
+			</data>
+			<key>hash2</key>
+			<data>
+			W1hirqQutOjguEnh1zwHrma/ph2Jcugdw/98zqKMgA0=
+			</data>
+		</dict>
 		<key>Headers/SBNetWorking.h</key>
-		<data>
-		GsaGhdZYAghTyR/WtxNsHEdRAoU=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			GsaGhdZYAghTyR/WtxNsHEdRAoU=
+			</data>
+			<key>hash2</key>
+			<data>
+			5Ui2eam+HTDDI4wcujGr82J/nvATHi7ZLS+gyXu4Xbw=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		ISKiuEihdWHO5OICIwEkOJ+ufmk=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			ISKiuEihdWHO5OICIwEkOJ+ufmk=
+			</data>
+			<key>hash2</key>
+			<data>
+			6Eg5ObLKhk+q4gTpN3IhK9SHqKAQalVJ+URcyxOw80k=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>

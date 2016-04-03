@@ -35,31 +35,59 @@
     NSString *urlString = @"http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo";
     
     // ******** Each and every time, it will fetch to server ******** //
-    //    [[SBManager sharedInstance] performDataTaskWithExecuteGetURL:urlString
-    //                                                       onSuccess:^(NSDictionary *dictionary) {
-    //                                                           NSLog(@"response %@",dictionary);
-    //
-    //                                                           [self updateResponseData:dictionary];
-    //
-    //
-    //                                                       } onFailure:^(NSError *error) {
-    //
-    //                                                           [self showErrorMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
-    //
-    //                                                       }];
+//    [[SBManager sharedInstance] performDataTaskWithExecuteGetURL:urlString
+//                                                       onSuccess:^(NSDictionary *dictionary) {
+//                                                           
+//                                                           NSHTTPURLResponse  *httpResponse = [dictionary valueForKey:@"headerResponse"];
+//                                                           
+//                                                           NSUInteger statusCode = [httpResponse statusCode];
+//                                                           
+//                                                           if (statusCode ==  200) {
+//                                                               
+//                                                               NSDictionary *response = [dictionary valueForKey:@"serverResponse"];
+//                                                               NSLog(@"RESPONSE %@",response);
+//                                                               [self updateResponseData:response];
+//                                                               
+//                                                               
+//                                                           }else {
+//                                                               
+//                                                               NSLog(@"Error : Status Code %ld",(unsigned long)statusCode);
+//                                                               
+//                                                           }
+//                                                           
+//                                                           
+//                                                       } onFailure:^(NSError *error) {
+//                                                           
+//                                                           [self showErrorMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
+//                                                           
+//                                                       }];
     
     // ******** After five minutes only (Based on "configCacheTimeInMinutes:5" Or "defaultCacheTimeConfig") next call will go to server. Eventhough Network available or Not available ******** //
-    //    [[SBManager sharedInstance] performDataTaskWithCacheAndExecuteGetURL:urlString
-    //                                                               onSuccess:^(NSDictionary *dictionary) {
-    //                                                                   NSLog(@"response %@",dictionary);
-    //
-    //                                                                   [self updateResponseData:dictionary];
-    //
-    //                                                               } onFailure:^(NSError *error) {
-    //
-    //                                                                   [self showErrorMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
-    //
-    //                                                               }];
+//    [[SBManager sharedInstance] performDataTaskWithCacheAndExecuteGetURL:urlString
+//                                                               onSuccess:^(NSDictionary *dictionary) {
+//                                                                   
+//                                                                   NSHTTPURLResponse  *httpResponse = [dictionary valueForKey:@"headerResponse"];
+//                                                                   
+//                                                                   NSUInteger statusCode = [httpResponse statusCode];
+//                                                                   
+//                                                                   if (statusCode ==  200) {
+//                                                                       
+//                                                                       NSDictionary *response = [dictionary valueForKey:@"serverResponse"];
+//                                                                       NSLog(@"RESPONSE %@",response);
+//                                                                       [self updateResponseData:response];
+//                                                                       
+//                                                                       
+//                                                                   }else {
+//                                                                       
+//                                                                       NSLog(@"Error : Status Code %ld",(unsigned long)statusCode);
+//                                                                       
+//                                                                   }
+//                                                                   
+//                                                               } onFailure:^(NSError *error) {
+//                                                                   
+//                                                                   [self showErrorMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
+//                                                                   
+//                                                               }];
     
     // ******** After ten minutes (Based on "cacheExpireTimeInMinutes" value) only next call will go to server. Eventhough Network available or Not available ******** \\
     
@@ -67,8 +95,22 @@
                                                 cacheExpireTimeInMinutes:10
                                                                onSuccess:^(NSDictionary *dictionary) {
                                                                    
-                                                                   [self updateResponseData:dictionary];
+                                                                   NSHTTPURLResponse  *httpResponse = [dictionary valueForKey:@"headerResponse"];
                                                                    
+                                                                   NSUInteger statusCode = [httpResponse statusCode];
+                                                                   
+                                                                   if (statusCode ==  200) {
+                                                                       
+                                                                       NSDictionary *response = [dictionary valueForKey:@"serverResponse"];
+                                                                       NSLog(@"RESPONSE %@",response);
+                                                                       [self updateResponseData:response];
+                                                                       
+                                                                       
+                                                                   }else {
+                                                                       
+                                                                       NSLog(@"Error : Status Code %ld",(unsigned long)statusCode);
+                                                                       
+                                                                   }
                                                                    
                                                                } onFailure:^(NSError *error) {
                                                                    

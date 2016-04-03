@@ -23,9 +23,9 @@
 		2D6683B41C5E6C150071D8AE /* SBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683AF1C5E6C150071D8AE /* SBHomeViewController.m */; };
 		2D6683B51C5E6C150071D8AE /* SBJsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */; };
 		2D6683B61C5E6C150071D8AE /* SBImageDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */; };
-		2DE6A55D1C6A25F800249135 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE6A55C1C6A25F800249135 /* SBNetWorking.framework */; };
-		2DE6A55E1C6A25FC00249135 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE6A55C1C6A25F800249135 /* SBNetWorking.framework */; };
-		2DE6A55F1C6A25FC00249135 /* SBNetWorking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE6A55C1C6A25F800249135 /* SBNetWorking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2DDABEC21CB13D19006DF534 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDABEC11CB13D19006DF534 /* SBNetWorking.framework */; };
+		2DDABEC31CB13D1C006DF534 /* SBNetWorking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDABEC11CB13D19006DF534 /* SBNetWorking.framework */; };
+		2DDABEC41CB13D1C006DF534 /* SBNetWorking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DDABEC11CB13D19006DF534 /* SBNetWorking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2DE6A55F1C6A25FC00249135 /* SBNetWorking.framework in Embed Frameworks */,
+				2DDABEC41CB13D1C006DF534 /* SBNetWorking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,7 +93,7 @@
 		2D6683B11C5E6C150071D8AE /* SBJsonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonViewController.m; sourceTree = "<group>"; };
 		2D6683B21C5E6C150071D8AE /* SBImageDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBImageDownloadViewController.h; sourceTree = "<group>"; };
 		2D6683B31C5E6C150071D8AE /* SBImageDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBImageDownloadViewController.m; sourceTree = "<group>"; };
-		2DE6A55C1C6A25F800249135 /* SBNetWorking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SBNetWorking.framework; sourceTree = "<group>"; };
+		2DDABEC11CB13D19006DF534 /* SBNetWorking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SBNetWorking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE6A55D1C6A25F800249135 /* SBNetWorking.framework in Frameworks */,
-				2DE6A55E1C6A25FC00249135 /* SBNetWorking.framework in Frameworks */,
+				2DDABEC21CB13D19006DF534 /* SBNetWorking.framework in Frameworks */,
+				2DDABEC31CB13D1C006DF534 /* SBNetWorking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +193,7 @@
 		2D66836C1C5E6B540071D8AE = {
 			isa = PBXGroup;
 			children = (
-				2DE6A55C1C6A25F800249135 /* SBNetWorking.framework */,
+				2DDABEC11CB13D19006DF534 /* SBNetWorking.framework */,
 				2D6683771C5E6B540071D8AE /* SBNetWork */,
 				2D6683911C5E6B540071D8AE /* SBNetWorkTests */,
 				2D66839C1C5E6B540071D8AE /* SBNetWorkUITests */,
