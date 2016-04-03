@@ -149,7 +149,22 @@ If you want to add headers, user below method before calling the services.
                                                            onSuccess:^(NSDictionary *dictionary) {
                                                                NSLog(@"response %@",dictionary);
     
-                                                               [self updateResponseData:dictionary];
+                                                                   NSHTTPURLResponse  *httpResponse = [dictionary valueForKey:@"headerResponse"];
+                                                                   
+                                                                   NSUInteger statusCode = [httpResponse statusCode];
+                                                                   
+                                                                   if (statusCode ==  200) {
+                                                                       
+                                                                       NSDictionary *response = [dictionary valueForKey:@"serverResponse"];
+                                                                       NSLog(@"RESPONSE %@",response);
+                                                                       [self updateResponseData:response];
+                                                                       
+                                                                       
+                                                                   }else {
+                                                                       
+                                                                       NSLog(@"Error : Status Code %ld",(unsigned long)statusCode);
+                                                                       
+                                                                   }
     
     
                                                            } onFailure:^(NSError *error) {
@@ -169,7 +184,22 @@ If you want to add headers, user below method before calling the services.
                                                                    onSuccess:^(NSDictionary *dictionary) {
                                                                        NSLog(@"response %@",dictionary);
     
-                                                                       [self updateResponseData:dictionary];
+                                                                   NSHTTPURLResponse  *httpResponse = [dictionary valueForKey:@"headerResponse"];
+                                                                   
+                                                                   NSUInteger statusCode = [httpResponse statusCode];
+                                                                   
+                                                                   if (statusCode ==  200) {
+                                                                       
+                                                                       NSDictionary *response = [dictionary valueForKey:@"serverResponse"];
+                                                                       NSLog(@"RESPONSE %@",response);
+                                                                       [self updateResponseData:response];
+                                                                       
+                                                                       
+                                                                   }else {
+                                                                       
+                                                                       NSLog(@"Error : Status Code %ld",(unsigned long)statusCode);
+                                                                       
+                                                                   }
     
                                                                    } onFailure:^(NSError *error) {
     
@@ -187,7 +217,22 @@ If you want to add headers, user below method before calling the services.
                                                 cacheExpireTimeInMinutes:10
                                                                onSuccess:^(NSDictionary *dictionary) {
                                                                    
-                                                                   [self updateResponseData:dictionary];
+                                                                   NSHTTPURLResponse  *httpResponse = [dictionary valueForKey:@"headerResponse"];
+                                                                   
+                                                                   NSUInteger statusCode = [httpResponse statusCode];
+                                                                   
+                                                                   if (statusCode ==  200) {
+                                                                       
+                                                                       NSDictionary *response = [dictionary valueForKey:@"serverResponse"];
+                                                                       NSLog(@"RESPONSE %@",response);
+                                                                       [self updateResponseData:response];
+                                                                       
+                                                                       
+                                                                   }else {
+                                                                       
+                                                                       NSLog(@"Error : Status Code %ld",(unsigned long)statusCode);
+                                                                       
+                                                                   }
                                                                    
                                                                    
                                                                } onFailure:^(NSError *error) {
